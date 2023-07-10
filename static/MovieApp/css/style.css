@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(10, 10, 32);
+}
+
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(237, 211, 13);
+}
+
+
+.nav-bar{
+    background-color: rgb(10, 10, 32);
+}
+
+

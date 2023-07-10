@@ -1,0 +1,43 @@
+{% extends 'MovieApp/base.html' %}
+{% load static %}
+{% block title %}dashboard{% endblock title %}
+
+{% block content %}
+
+    <h5 style="color:white" class=""> Welcome, {{user}}! </h5>
+
+    <a class="btn btn-outline-primary btn-sm mb-4" href="{% url 'create-record' %}">
+
+        Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+    
+    <h5 class="text-warning">{{ status }}</h5>
+
+
+    <div class="col-12">
+        <div class="row">
+            {% for record in records %}
+            <div class="col-md-3 my-2">
+                <div class="card" style="width: 15rem">
+                    <a href="{% url 'movie-detail' record.id %}"><img src="{{record.image.url}}" alt="No Image Found" height="300px" class="card-img-top"></a>
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title text-white text-center">{{record.title}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+
+{% endblock content %}

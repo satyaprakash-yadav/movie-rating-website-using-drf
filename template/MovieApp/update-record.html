@@ -1,0 +1,87 @@
+{% extends 'MovieApp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 w-50 form-layout rounded shadow">
+
+            <h3> Update Record </h3>
+
+            <h6> Update your record down below. </h6>
+            
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.title|as_crispy_field}}
+
+                <br>
+
+                {{form.genre|as_crispy_field}}
+
+                <br>
+                
+                {{form.release_date|as_crispy_field}}
+
+                <br>
+                
+                {{form.director|as_crispy_field}}
+
+                <br>
+                
+                {{form.image|as_crispy_field}}
+
+                <br>
+                
+                {{form.language|as_crispy_field}}
+
+                <br>
+                
+                {{form.status|as_crispy_field}}
+
+                <br>
+                
+                {{form.views_count|as_crispy_field}}
+
+                <br>
+
+                {{form.rating|as_crispy_field}}
+
+                <br>
+
+                {{form.description|as_crispy_field}}
+
+                <br>
+
+
+                <button type="submit" class="btn btn-primary"> 
+                    Update
+                </button>
+
+                &nbsp;
+
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+
+                    Back 
+                    
+                </a>
+
+            </form>
+
+        </div>
+
+        <br>
+        
+    </body>
+
+
+{% endblock %}
+
+

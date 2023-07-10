@@ -1,0 +1,109 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-center">
+
+  <a class="navbar-brand main-heading" href="{% url '' %}"> 
+          
+    &nbsp; <span class="text-warning">Movie</span>X <i class="bi bi-camera-reels-fill"></i>
+  
+  </a>
+
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+
+    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+
+      
+      <ul class="navbar-nav mr-auto">
+
+
+        &nbsp;     &nbsp;     &nbsp; 
+
+        {% if user.is_authenticated %}
+
+          <li class="nav-item">
+      
+            <a class="nav-link" href="{% url 'dashboard' %}"> Dashboard &nbsp; <i class="bi bi-house-fill"></i> </a>
+
+          </li>
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+
+          <li class="nav-item">
+      
+            <a class="nav-link" href="#"> Movies &nbsp; <i class="bi bi-film"></i> </a>
+
+          </li>
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+
+      
+          <li class="nav-item">
+      
+            <a class="nav-link" href="#"> Watch &nbsp; <i class="bi bi-collection-play-fill"></i> </a>
+
+          </li>
+
+
+          &nbsp;     &nbsp;     &nbsp; 
+
+          
+          <li class="nav-item">
+
+            <a class="nav-link" href="{% url 'user_logout' %}"> Sign out &nbsp; <i class="bi bi-box-arrow-right"></i> </a>
+
+          </li>
+          
+
+      </ul>
+
+      
+
+      {% else %}
+
+      <li class="nav-item">
+
+        <a class="nav-link" href="{% url 'register' %}"> Register </a>
+
+      </li>
+
+
+      &nbsp;     &nbsp;     &nbsp; 
+
+
+      <li class="nav-item">
+
+        <a class="nav-link" href="{% url 'login' %}"> Login </a>
+
+      </li>
+
+
+      {% endif %}
+    
+      
+    </div>
+
+    {% if user.is_authenticated %}
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-warning" type="submit">Search</button>
+    </form>
+    {% endif %}
+
+</nav>
+
+
+

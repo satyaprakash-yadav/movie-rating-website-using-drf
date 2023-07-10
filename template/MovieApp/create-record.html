@@ -1,0 +1,90 @@
+{% extends 'MovieApp/base.html' %}
+{% load static %}
+{% block title %}record{% endblock title %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<body>
+
+    <div class="container bg-light shadow-md p-5 w-50 form-layout">
+
+        <div class="container border rounded text-center bg-primary mb-2">
+            <h2 class="text-light"> Create Record </h2>
+        </div>
+
+        <h6> Start adding in the required details for your record. </h6>
+        
+        <hr>
+        <br>
+
+        <form method="POST" autocomplete="off" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{form.title|as_crispy_field}}
+
+            <br>
+
+            {{form.genre|as_crispy_field}}
+
+            <br>
+            
+            {{form.release_date|as_crispy_field}}
+
+            <br>
+
+            {{form.director|as_crispy_field}}
+
+            <br>
+            
+            {{form.image|as_crispy_field}}
+
+            <br>
+            
+            {{form.language|as_crispy_field}}
+
+            <br>
+            
+            {{form.status|as_crispy_field}}
+
+            <br>
+            
+            {{form.views_count|as_crispy_field}}
+
+            <br>
+
+            {{form.rating|as_crispy_field}}
+
+            <br>
+
+            {{form.description|as_crispy_field}}
+
+            <br>
+
+
+            <button type="submit" class="btn btn-primary">
+
+                Create
+
+            </button>
+
+            &nbsp;
+
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+
+                Back 
+                
+            </a>
+
+
+        </form>
+
+    </div>
+
+    <br>
+    
+</body>
+
+
+{% endblock content %}
