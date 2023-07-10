@@ -169,11 +169,7 @@ def delete_record(request, pk):
 def download_dataset(request):
     # Your dataset URL on kaggle
     dataset_url = "https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv"
-
-    # Set the destination directory where you want to download the dataset
     destination_dir = os.path.join(settings.BASE_DIR, "datasets")
-
-    # Download the dataset using the kaggle API
     kaggle.api.competition_download_files(dataset_url, path=destination_dir, unzip = True)
 
     return HttpResponse("Dataset download successfully.")
